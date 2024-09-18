@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card container-forms">
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <legend class="border-bottom mb-4">Profile Information:</legend>
+                        <div class="media">
+                            <div class="media-body">
+                                <h2 class="account-heading">{{ form.instance.username }}
+                                    <small class="text-muted">({{ form.instance.status }})</small>
+                                </h2>
+                                <p class="text-secondary">{{ form.instance.first_name }} {{ form.instance.last_name }}
+                                </p>
+                                <p class="text-secondary">{{ form.instance.email }}</p>
+                                <p class="text-secondary">{{ form.instance.description }}</p>
+                            </div>
+                        </div>
+                        {% if user.username == form.instance.username and not request.user.is_employee %}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">Edit Profile Information</legend>
+                            <div class="form-group">
+
+                                {{ form.first_name.label_tag }}
+                                <br>
+                                {{ form.first_name }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.last_name.label_tag }}
+                                <br>
+                                {{ form.last_name }}
+                            </div>
+                            <a href="{% url 'password_change' %}">Change password?</a>
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-dark" type="submit">Update</button>
+                        </div>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+
+</style>
+{% endblock content %}

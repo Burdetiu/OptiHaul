@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card container-forms">
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{ form.order_type.label_tag }}
+                            <br>
+                            {{ form.order_type }} {{ form.order_type.errors }}
+                        </div>
+                        <div class="form-group">
+
+                            {{ form.company.label_tag }}
+                            <br>
+                            {{ form.company }} {{ form.company.errors }}
+
+                        </div>
+                        <div class="form-group">
+
+                            {{ form.address.label_tag }}
+                            <br>
+                            {{ form.address }} {{ form.address.errors }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.cargo_weight.label_tag }}
+                            <br>
+                            {{ form.cargo_weight }} {{ form.cargo_weight.errors }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.cargo_size.label_tag }}
+                            <br>
+                            {{ form.cargo_size }} {{ form.cargo_info.errors }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.eta.label_tag }}
+                            <br>
+                            {{ form.eta }} {{ form.eta.errors }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.status.label_tag }}
+                            <br>
+                            {{ form.status }} {{ form.status.errors }}
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2">
+                                <button style="margin: 10px" type="submit" class="btn btn-dark">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

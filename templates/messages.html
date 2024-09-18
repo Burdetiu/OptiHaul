@@ -1,0 +1,50 @@
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message|safe|escape }}
+                <a href="#" class="close" onclick="closeAlert(event)" data-dismiss="alert" aria-label="close">&times;</a>
+            </div>
+        {% elif message.tags == 'error' %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ message|safe }}
+                <a href="#" class="close" onclick="closeAlert(event)" data-dismiss="alert" aria-label="close">&times;</a>
+            </div>
+        {% elif message.tags == 'info' %}
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                {{ message|safe|escape }}
+                <a href="#" class="close" onclick="closeAlert(event)" data-dismiss="alert" aria-label="close">&times;</a>
+            </div>
+        {% elif message.tags == 'warning' %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{ message|safe|escape }}
+                <a href="#" class="close" onclick="closeAlert(event)" data-dismiss="alert" aria-label="close">&times;</a>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+<style>
+    .close {
+        text-decoration: none;
+        font-size: 2rem;
+        color: red;
+        display: inline-block;
+        vertical-align: middle;
+    }
+</style>
+
+<script>
+    function closeAlert(event) {
+        event.preventDefault();
+        event.target.parentElement.style.display = 'none';
+    }
+
+    $(document).ready(function() {
+        setTimeout(fade_out, 5000);
+    });
+
+    function fade_out() {
+        $(".alert").fadeOut().remove();
+    }
+</script>

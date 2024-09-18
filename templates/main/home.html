@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main role="main" class="inner cover d-flex flex-column justify-content-center align-items-center">
+  <div class="text-center">
+    <h1 class="cover-heading">Logistics Management</h1>
+    <p class="lead">Manage your logistics company in the simplest way possible.</p>
+    {% if not request.user.is_authenticated %}
+    <p class="lead">
+      <a href="{% url 'register' %}" class="btn btn-lg btn-dark">Register</a>
+      <p style="font-size: small; margin: -10px;">already registered? <a style="color: rgb(0, 0, 0); font-weight: 800; text-decoration: none;" href="{% url 'login' %}">Log in</a></p>
+    </p>
+    {% endif %}
+  </div>
+</main>
+{% endblock %}

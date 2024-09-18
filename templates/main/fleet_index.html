@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container d-flex flex-wrap justify-content-center mt-5">
+        <div class="container-item col-md-6 col-lg-4 mb-5">
+            <a href="{% url 'fleet:trucks_list' %}" class="menu-item" style="width: 100%;">Trucks</a>
+        </div>
+        <div class="container-item col-md-6 col-lg-4 mb-5">
+            <a href="{% url 'fleet:trailers_list' %}" class="menu-item" style="width: 100%;">Trailers</a>
+        </div>
+    </div>
+
+    <style>
+        .container-item {
+            margin: 20px 0;
+        }
+
+        @media (max-width: 766px) {
+            .container-item {
+                margin: 20px;
+            }
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="row">
+    <div class="col">
+      <a href="{% url 'employees:employees_index' %}" class="menu-item d-flex justify-content-center align-items-center">
+        <div>My Orders</div>
+      </a>
+    </div>
+    <div class="col">
+      <a href="{% url 'orders:orders_index' %}" class="menu-item d-flex justify-content-center align-items-center">
+        <div>Route Sheet</div>
+      </a>
+    </div>
+    <div class="col">
+      <a href=""  class="menu-item d-flex justify-content-center align-items-center">
+        <div>Request assistance</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+ 
+</style>
+{% endblock %}
